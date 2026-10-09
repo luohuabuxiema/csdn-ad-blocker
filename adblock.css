@@ -1,0 +1,134 @@
+/* ==========================================================================
+   CSDN 极简去广告 - 核心样式适配规则
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. 彻底屏蔽最新版左右两侧浮动 VIP 广告及动效（彻底解决网页两边出现巨型文字及排版错乱）
+   -------------------------------------------------------------------------- */
+.simple-ad-slot,
+.simple-ad-slot-left,
+.simple-ad-slot-right,
+.simple-ad-slot__fixed,
+.csdn-vip-motion,
+[class*="csdn-vip-motion"],
+.simple-ad-bg,
+[data-vip-slot] {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  width: 0 !important;
+  height: 0 !important;
+  max-width: 0 !important;
+  max-height: 0 !important;
+  min-width: 0 !important;
+  min-height: 0 !important;
+  flex: 0 0 0 !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  border: none !important;
+  overflow: hidden !important;
+  pointer-events: none !important;
+}
+
+/* 恢复因广告插槽被撑大的页面主体容器宽度，回归正常居中排版 */
+html body .simple-column-page.has-ad-slots #mainBox,
+html body.has-simple-ad-background-skin .simple-column-page.has-ad-slots #mainBox {
+  max-width: calc(max(45vw, 820px) + 164px) !important;
+}
+
+/* 移除广告专用的复杂渐变背景，恢复干净纯色背景 */
+body.has-simple-ad-background-skin {
+  background-image: none !important;
+  background-color: #f5f6f7 !important;
+}
+
+/* --------------------------------------------------------------------------
+   2. 文章侧边/悬浮工具栏净化（隐藏分享等干扰组件）
+   -------------------------------------------------------------------------- */
+#tool-share,
+.tool-item.tool-QRCode,
+.tool-item-size.tool-QRCode,
+.sidebar-item#tool-share {
+  display: none !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+}
+
+/* --------------------------------------------------------------------------
+   3. 通用广告与推荐流广告屏蔽
+   -------------------------------------------------------------------------- */
+#recommendAdBox,
+.recommend-ad-box,
+.recommend-box.insert-baidu-box,
+.insert-baidu-box,
+[id^="kp_box_"],
+.csdn-tracking-statistics[data-pid="blog"] > .ad-wrap,
+.recommend-right_bottom,
+.toolbar-advert,
+#toolBarBox .toolbar-advert,
+.programmer1Box,
+.indexSuperise,
+#asideCustom,
+#asideNewNps,
+#aside-ad,
+#asideWriteGuide,
+.aside-box.custom-box,
+.aside-box.cknows-side-card,
+.js-aside-cknows,
+.swiper-slide-box-remuneration,
+#swiper-remuneration-container,
+.sidetool-writearticle-box,
+.sidetool-qrcode-box,
+#chatgpt-article-detail,
+.ai-article-qa,
+.ai-article-box,
+.article-info-box .article-ai-summary {
+  display: none !important;
+  visibility: hidden !important;
+  height: 0 !important;
+  pointer-events: none !important;
+}
+
+/* --------------------------------------------------------------------------
+   4. 登录拦截弹窗与底部遮罩
+   -------------------------------------------------------------------------- */
+#passportbox,
+.passport-login-container,
+.passport-login-mark,
+.pulllog-box,
+.box-box-large,
+.box-box-default,
+#toolBarBox .guide-login-mask {
+  display: none !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+}
+
+/* --------------------------------------------------------------------------
+   5. 全文阅读优化（自动展开非付费文章）
+   -------------------------------------------------------------------------- */
+#article_content {
+  height: auto !important;
+  max-height: none !important;
+  overflow: visible !important;
+}
+
+/* 仅对普通文章隐藏阅读全文折叠遮罩，保留付费专栏解锁引导以防误导 */
+.hide-article-box:not(:has(.lock-text)):not(:has(.bt-subscribe-article)) {
+  display: none !important;
+}
+
+/* --------------------------------------------------------------------------
+   6. 解除复制限制（允许自由选择并复制代码与文本）
+   -------------------------------------------------------------------------- */
+#content_views,
+#content_views pre,
+#content_views pre code,
+.article_content {
+  -webkit-touch-callout: default !important;
+  -webkit-user-select: text !important;
+  -khtml-user-select: text !important;
+  -moz-user-select: text !important;
+  -ms-user-select: text !important;
+  user-select: text !important;
+}

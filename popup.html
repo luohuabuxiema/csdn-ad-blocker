@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>CSDN 去广告设置</title>
+  <style>
+    body {
+      width: 250px;
+      padding: 15px;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      color: #333;
+    }
+    h3 {
+      margin-top: 0;
+      margin-bottom: 15px;
+      font-size: 16px;
+      border-bottom: 1px solid #eee;
+      padding-bottom: 10px;
+    }
+    .setting-item {
+      display: flex;
+      align-items: center;
+      margin-bottom: 12px;
+      cursor: pointer;
+    }
+    .setting-item input[type="checkbox"] {
+      margin-right: 10px;
+      cursor: pointer;
+    }
+    .hint {
+      font-size: 12px;
+      color: #888;
+      margin-top: 15px;
+    }
+  </style>
+</head>
+<body>
+  <h3>CSDN 界面净化设置</h3>
+  
+  <label class="setting-item">
+    <input type="checkbox" id="hidePrice" checked>
+    <span>隐藏专栏文章价格</span>
+  </label>
+  
+  <label class="setting-item">
+    <input type="checkbox" id="hideSubCount" checked>
+    <span>隐藏专栏订阅数量</span>
+  </label>
+
+  <div class="hint">设置将自动保存，刷新 CSDN 页面后生效。</div>
+
+  <script src="popup.js"></script>
+</body>
+</html>

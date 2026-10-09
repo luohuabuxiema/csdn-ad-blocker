@@ -1,0 +1,26 @@
+{
+  "manifest_version": 3,
+  "name": "CSDN 极简去广告",
+  "version": "1.1.0",
+  "description": "去除 CSDN 博客页面各种烦人的广告、弹窗，并自动展开阅读全文。",
+  "permissions": [
+    "storage"
+  ],
+  "action": {
+    "default_popup": "popup.html"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "*://*.csdn.net/*"
+      ],
+      "css": [
+        "adblock.css"
+      ],
+      "js": [
+        "adblock.js"
+      ],
+      "run_at": "document_start"
+    }
+  ]
+}
